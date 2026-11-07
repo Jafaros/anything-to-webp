@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI Variable", "Segoe UI", sans-serif;
+  --color-ink: #202a24;
+  --color-muted: #758078;
+  --color-paper: #f7f8f5;
+  --color-line: #e5e9e2;
+  --color-leaf: #39734d;
+}
+
+@layer base {
+  body {
+    @apply m-0 bg-paper text-ink antialiased;
+  }
+  button {
+    @apply cursor-pointer transition-colors disabled:cursor-not-allowed disabled:opacity-45;
+  }
+  button,
+  input,
+  select {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-leaf;
+  }
+  input[type="range"] {
+    @apply w-full cursor-pointer accent-leaf;
+  }
+  input[type="checkbox"] {
+    @apply size-4 rounded accent-leaf;
+  }
+  ::selection {
+    @apply bg-green-200;
+  }
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none focus:border-leaf disabled:bg-paper;
+  }
+  .secondary-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-white px-3.5 py-2 text-sm font-medium hover:bg-paper;
+  }
+  .section-label {
+    @apply text-[11px] font-semibold tracking-[0.14em] text-muted uppercase;
+  }
+}
